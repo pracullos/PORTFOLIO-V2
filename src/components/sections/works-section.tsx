@@ -1,0 +1,129 @@
+import { ArrowRight } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+import { SectionHeading } from "@/components/sections/section-heading"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+
+type StackGroup = {
+  label: string
+  items: string[]
+}
+
+type Project = {
+  id: string
+  title: string
+  status: string
+  description: string
+  stacks: StackGroup[]
+}
+
+const PROJECTS: Project[] = [
+  {
+    id: "rental-platform",
+    title: "Rental Platform",
+    status: "Web & Mobile",
+    description:
+      "A rental platform available on web and mobile, letting users list and book rentals with a Cloudflare-backed API sitting between the client and the database.",
+    stacks: [
+      { label: "Frontend", items: ["React", "Expo"] },
+      { label: "Backend", items: ["Supabase"] },
+      { label: "Middleware", items: ["Hono", "Cloudflare Pages"] },
+    ],
+  },
+  {
+    id: "networking-saas",
+    title: "Networking Platform",
+    status: "In Progress",
+    description:
+      "A SaaS networking application currently in development, built for scale with a Python API and cloud infrastructure to match.",
+    stacks: [
+      { label: "Frontend", items: ["React"] },
+      { label: "Backend", items: ["FastAPI"] },
+      { label: "Infrastructure", items: ["AWS EC2", "VPC", "S3", "RDS"] },
+    ],
+  },
+  {
+    id: "dayong",
+    title: "Dayong",
+    status: "Planned",
+    description:
+      "A blockchain app for my community's mutual-aid death group — when a member passes, every remaining member contributes a fee and goods to the family. Blockchain keeps the member count and total contributions transparent to everyone in the group.",
+    stacks: [{ label: "Concept", items: ["Blockchain", "Smart Contracts"] }],
+  },
+]
+
+function ProjectCard({ project, reverse }: { project: Project; reverse: boolean }) {
+  return (
+    <Card className="p-0">
+      <div className="grid grid-cols-1 gap-6 p-6 sm:p-8 md:grid-cols-3">
+        <div
+          className={cn(
+            "flex flex-col gap-3 md:col-span-2",
+            reverse ? "md:order-2" : "md:order-1"
+          )}
+        >
+          <Badge variant="secondary" className="w-fit">
+            {project.status}
+          </Badge>
+          <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
+          <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+            {project.description}
+          </p>
+        </div>
+
+        <div
+          className={cn(
+            "flex flex-col gap-4 md:col-span-1 md:border-l md:pl-6",
+            reverse ? "md:order-1 md:border-l-0 md:border-r md:pl-0 md:pr-6" : "md:order-2"
+          )}
+        >
+          <span className="text-sm font-medium text-foreground">Tech Stack</span>
+          {project.stacks.map((stack) => (
+            <div key={stack.label} className="flex flex-col gap-1.5">
+              <span className="text-xs text-muted-foreground">{stack.label}</span>
+              <div className="flex flex-wrap gap-1.5">
+                {stack.items.map((item) => (
+                  <Badge key={item} variant="outline">
+                    {item}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex justify-end border-t border-border px-6 py-3 sm:px-8">
+        <Button asChild variant="ghost" size="sm">
+          <a href="#">
+            More
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </a>
+        </Button>
+      </div>
+    </Card>
+  )
+}
+
+export function WorksSection() {
+  return (
+    <section id="works" aria-labelledby="works-heading" className="mx-auto w-full max-w-5xl px-6 py-20">
+      <div id="works-heading">
+        <SectionHeading
+          eyebrow="Recent work"
+          title="Things I've built"
+          description="Projects I've shipped and am currently building, from rental platforms to blockchain experiments."
+          align="center"
+        />
+      </div>
+
+      <div className="mt-10 grid grid-cols-1 gap-6">
+        {PROJECTS.map((project, index) => (
+          <ProjectCard key={project.id} project={project} reverse={index % 2 === 1} />
+        ))}
+      </div>
+    </section>
+  )
+}
