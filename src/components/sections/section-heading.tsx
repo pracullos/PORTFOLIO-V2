@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils"
+import { TypedText } from "@/components/typed-text"
 
 type SectionHeadingProps = {
   eyebrow?: string
@@ -23,8 +24,13 @@ export function SectionHeading({
       {eyebrow ? (
         <span className="text-sm font-medium text-muted-foreground">{eyebrow}</span>
       ) : null}
-      <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-        {title}
+      <h2
+        aria-label={title}
+        className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
+      >
+        <span aria-hidden="true">
+          <TypedText strings={[title]} showCursor={false} />
+        </span>
       </h2>
       {description ? (
         <p

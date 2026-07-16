@@ -5,9 +5,19 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react"
 import bgAnimationUrl from "@/assets/animations/globe_background.lottie?url"
 import programmingComputerUrl from "@/assets/animations/programming_computer.lottie?url"
 import { PROFILE, type SocialLink } from "@/data/portfolio"
+import { TypedText } from "@/components/typed-text"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+
+const ROLE_STRINGS = [
+  "FullStack Developer",
+  "Cloud Engineer",
+  "Bachelor of Science in Information Technology",
+  "Cum Laude",
+  "Civil Service Eligible",
+]
+
 
 const SOCIAL_ICONS: Record<SocialLink["icon"], ComponentType<{ className?: string }>> = {
   github: Github,
@@ -55,7 +65,12 @@ export function HeroSection() {
             <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
               {PROFILE.name}
             </h1>
-            <p className="text-lg text-muted-foreground sm:text-xl">{PROFILE.role}</p>
+            <p className="text-lg text-muted-foreground sm:text-xl">
+              <span className="sr-only">{PROFILE.role}</span>
+              <span aria-hidden="true">
+                <TypedText strings={ROLE_STRINGS} loop backDelay={1800} />
+              </span>
+            </p>
           </div>
 
           <p className="max-w-2xl text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">
