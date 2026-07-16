@@ -144,6 +144,18 @@ export const EXPERIENCE: ExperienceItem[] = [
   },
 ]
 
+export const INTERNSHIP: ExperienceItem = {
+  id: "intern-1",
+  role: "Software Engineer Intern",
+  company: "Sindbad.Tech",
+  startDate: "Feb 16, 2026",
+  endDate: "May 1, 2026",
+  location: "Saudi Arabia",
+  highlights: [
+    "Software engineering intern at Sindbad.Tech, a fintech company based in Saudi Arabia.",
+  ],
+}
+
 export const EDUCATION: EducationItem[] = [
   {
     id: "edu-1",

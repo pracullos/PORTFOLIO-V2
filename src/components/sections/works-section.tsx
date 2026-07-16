@@ -1,72 +1,107 @@
-import { DotLottieReact } from "@lottiefiles/dotlottie-react"
+import { ArrowRight } from "lucide-react"
 
-import cloudComputingUrl from "@/assets/animations/network.lottie?url"
-import fullstackUrl from "@/assets/animations/fullstack.lottie?url"
 import { cn } from "@/lib/utils"
 import { SectionHeading } from "@/components/sections/section-heading"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 
-type WorkHighlight = {
-  id: string
-  title: string
-  description: string
-  tags: string[]
-  lottieUrl: string
-  reverse?: boolean
+type StackGroup = {
+  label: string
+  items: string[]
 }
 
-const WORK_HIGHLIGHTS: WorkHighlight[] = [
+type Project = {
+  id: string
+  title: string
+  status: string
+  description: string
+  stacks: StackGroup[]
+}
+
+const PROJECTS: Project[] = [
   {
-    id: "fullstack",
-    title: "Full Stack Development",
+    id: "rental-platform",
+    title: "Rental Platform",
+    status: "Web & Mobile",
     description:
-      "End-to-end product builds — from React front ends to the APIs and databases behind them.",
-    tags: ["React", "Node.js", "PostgreSQL"],
-    lottieUrl: fullstackUrl,
+      "A rental platform available on web and mobile, letting users list and book rentals with a Cloudflare-backed API sitting between the client and the database.",
+    stacks: [
+      { label: "Frontend", items: ["React", "Expo"] },
+      { label: "Backend", items: ["Supabase"] },
+      { label: "Middleware", items: ["Hono", "Cloudflare Pages"] },
+    ],
   },
   {
-    id: "cloud",
-    title: "Cloud Infrastructure",
+    id: "networking-saas",
+    title: "Networking Platform",
+    status: "In Progress",
     description:
-      "Deploying and scaling apps on cloud platforms, with CI/CD pipelines and infrastructure as code.",
-    tags: ["AWS", "Docker", "CI/CD"],
-    lottieUrl: cloudComputingUrl,
-    reverse: true,
+      "A SaaS networking application currently in development, built for scale with a Python API and cloud infrastructure to match.",
+    stacks: [
+      { label: "Frontend", items: ["React"] },
+      { label: "Backend", items: ["FastAPI"] },
+      { label: "Infrastructure", items: ["AWS EC2", "VPC", "S3", "RDS"] },
+    ],
+  },
+  {
+    id: "dayong",
+    title: "Dayong",
+    status: "Planned",
+    description:
+      "A blockchain app for my community's mutual-aid death group — when a member passes, every remaining member contributes a fee and goods to the family. Blockchain keeps the member count and total contributions transparent to everyone in the group.",
+    stacks: [{ label: "Concept", items: ["Blockchain", "Smart Contracts"] }],
   },
 ]
 
-function WorkHighlightCard({ title, description, tags, lottieUrl, reverse }: WorkHighlight) {
+function ProjectCard({ project, reverse }: { project: Project; reverse: boolean }) {
   return (
-    <Card className="gap-0 overflow-hidden p-0">
-      <div
-        className={cn(
-          "flex flex-col gap-4 p-4 sm:p-6 md:flex-row md:items-center md:gap-6",
-          reverse && "md:flex-row-reverse"
-        )}
-      >
-        <div className="flex flex-1 flex-col gap-3 text-center md:text-left">
-          <h3 className="text-xl font-semibold text-foreground">{title}</h3>
+    <Card className="p-0">
+      <div className="grid grid-cols-1 gap-6 p-6 sm:p-8 md:grid-cols-3">
+        <div
+          className={cn(
+            "flex flex-col gap-3 md:col-span-2",
+            reverse ? "md:order-2" : "md:order-1"
+          )}
+        >
+          <Badge variant="secondary" className="w-fit">
+            {project.status}
+          </Badge>
+          <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
           <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-            {description}
+            {project.description}
           </p>
-          <div className="flex flex-wrap justify-center gap-1.5 md:justify-start">
-            {tags.map((tag) => (
-              <Badge key={tag} variant="outline">
-                {tag}
-              </Badge>
-            ))}
-          </div>
         </div>
-        <div className="flex flex-1 items-center justify-center" aria-hidden="true">
-          <DotLottieReact
-            src={lottieUrl}
-            autoplay
-            loop
-            backgroundColor="transparent"
-            className="aspect-square w-full max-w-sm sm:max-w-md"
-          />
+
+        <div
+          className={cn(
+            "flex flex-col gap-4 md:col-span-1 md:border-l md:pl-6",
+            reverse ? "md:order-1 md:border-l-0 md:border-r md:pl-0 md:pr-6" : "md:order-2"
+          )}
+        >
+          <span className="text-sm font-medium text-foreground">Tech Stack</span>
+          {project.stacks.map((stack) => (
+            <div key={stack.label} className="flex flex-col gap-1.5">
+              <span className="text-xs text-muted-foreground">{stack.label}</span>
+              <div className="flex flex-wrap gap-1.5">
+                {stack.items.map((item) => (
+                  <Badge key={item} variant="outline">
+                    {item}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
+      </div>
+
+      <div className="flex justify-end border-t border-border px-6 py-3 sm:px-8">
+        <Button asChild variant="ghost" size="sm">
+          <a href="#">
+            More
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </a>
+        </Button>
       </div>
     </Card>
   )
@@ -79,14 +114,14 @@ export function WorksSection() {
         <SectionHeading
           eyebrow="Recent work"
           title="Things I've built"
-          description="A selection of what I do — from full stack products to the cloud infrastructure that runs them."
+          description="Projects I've shipped and am currently building, from rental platforms to blockchain experiments."
           align="center"
         />
       </div>
 
-      <div className="mt-10 flex flex-col gap-6">
-        {WORK_HIGHLIGHTS.map((work) => (
-          <WorkHighlightCard key={work.id} {...work} />
+      <div className="mt-10 grid grid-cols-1 gap-6">
+        {PROJECTS.map((project, index) => (
+          <ProjectCard key={project.id} project={project} reverse={index % 2 === 1} />
         ))}
       </div>
     </section>
