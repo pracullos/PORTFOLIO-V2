@@ -33,7 +33,10 @@ function ExperienceRow({
   highlights: string[]
 }) {
   return (
-    <Item variant="outline" className="items-start">
+    <Item
+      variant="outline"
+      className="items-start border-l-2 border-l-indigo-500/70 transition-transform transition-shadow duration-300 ease-out hover:-translate-y-1 hover:shadow-md dark:border-l-indigo-400/60"
+    >
       <ItemMedia variant="icon" className="mt-1">
         <Briefcase className="size-4" aria-hidden="true" />
       </ItemMedia>

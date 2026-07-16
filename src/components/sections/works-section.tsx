@@ -56,7 +56,7 @@ const PROJECTS: Project[] = [
 
 function ProjectCard({ project, reverse }: { project: Project; reverse: boolean }) {
   return (
-    <Card className="p-0">
+    <Card className="p-0 transition-transform transition-shadow duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
       <div className="grid grid-cols-1 gap-6 p-6 sm:p-8 md:grid-cols-3">
         <div
           className={cn(
@@ -75,8 +75,10 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
 
         <div
           className={cn(
-            "flex flex-col gap-4 md:col-span-1 md:border-l md:pl-6",
-            reverse ? "md:order-1 md:border-l-0 md:border-r md:pl-0 md:pr-6" : "md:order-2"
+            "flex flex-col gap-4 border-indigo-500/70 p-4 md:col-span-1 dark:border-indigo-400/60",
+            reverse
+              ? "md:order-1 rounded-tr-lg border-t-2 border-r-2"
+              : "md:order-2 rounded-tl-lg border-t-2 border-l-2"
           )}
         >
           <span className="text-sm font-medium text-foreground">Tech Stack</span>
