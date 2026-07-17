@@ -3,6 +3,13 @@
  * file only, so real content never touches JSX.
  */
 
+import awsAnsUrl from "@/assets/certificates/AWS Certified Advance Networking Specialty.pdf?url"
+import awsCloudPractitionerUrl from "@/assets/certificates/AWS Cloud Practitioner Essentials (1).pdf?url"
+import aiAdvantageUrl from "@/assets/certificates/Diana Certificate.pdf?url"
+import sindbadCertUrl from "@/assets/certificates/Sindbad Certificate.pdf?url"
+import worldWideCtfUrl from "@/assets/certificates/world_wide_ctf.jpg?url"
+import aiMlWebinarUrl from "@/assets/certificates/artificial intelligence machine learning.jpg?url"
+
 export type SocialLink = {
   label: string
   href: string
@@ -59,12 +66,21 @@ export type SkillGroup = {
   skills: string[]
 }
 
+export type CertificateItem = {
+  id: string
+  title: string
+  issuer: string
+  date: string
+  description: string
+  fileUrl: string
+}
+
 export const PROFILE: Profile = {
-  name: "Jordan Rivera",
-  role: "Frontend Engineer",
+  name: "John Paul B. Pracullos",
+  role: "Full-Stack Developer",
   tagline: "Building fast, accessible interfaces for the web.",
   summary:
-    "I design and build production-grade UI systems — from design tokens to component libraries — with a focus on performance, accessibility, and developer experience.",
+    "Software Developer with hands-on experience building backend services, microservice architectures, and AI-powered applications using Python, Java, Spring Boot, FastAPI, and PostgreSQL. Experienced in developing scalable APIs, automation workflows, and machine learning solutions through internship and project work. Passionate about building reliable software systems that solve real-world problems.",
   location: "Remote · GMT+7",
   availability: "Open to new opportunities",
   resumeUrl: "/resume.pdf",
@@ -107,41 +123,41 @@ export const WORKS: WorkItem[] = [
 ]
 
 export const EXPERIENCE: ExperienceItem[] = [
-  {
-    id: "exp-1",
-    role: "Senior Frontend Engineer",
-    company: "Northwind Labs",
-    startDate: "2023",
-    endDate: "Present",
-    location: "Remote",
-    highlights: [
-      "Led migration of legacy dashboard to a component-driven architecture, reducing bundle size by 38%.",
-      "Introduced a shared design-token pipeline used across 4 product surfaces.",
-    ],
-  },
-  {
-    id: "exp-2",
-    role: "Frontend Engineer",
-    company: "Bluecrest Software",
-    startDate: "2021",
-    endDate: "2023",
-    location: "Singapore",
-    highlights: [
-      "Built and maintained a customer-facing analytics portal serving 50k+ monthly users.",
-      "Partnered with design to establish accessibility guidelines adopted org-wide.",
-    ],
-  },
-  {
-    id: "exp-3",
-    role: "Junior Web Developer",
-    company: "Studio Forge",
-    startDate: "2019",
-    endDate: "2021",
-    location: "Jakarta",
-    highlights: [
-      "Shipped marketing sites and landing pages for 15+ clients using React and CMS integrations.",
-    ],
-  },
+  // {
+  //   id: "exp-1",
+  //   role: "Senior Frontend Engineer",
+  //   company: "Northwind Labs",
+  //   startDate: "2023",
+  //   endDate: "Present",
+  //   location: "Remote",
+  //   highlights: [
+  //     "Led migration of legacy dashboard to a component-driven architecture, reducing bundle size by 38%.",
+  //     "Introduced a shared design-token pipeline used across 4 product surfaces.",
+  //   ],
+  // },
+  // {
+  //   id: "exp-2",
+  //   role: "Frontend Engineer",
+  //   company: "Bluecrest Software",
+  //   startDate: "2021",
+  //   endDate: "2023",
+  //   location: "Singapore",
+  //   highlights: [
+  //     "Built and maintained a customer-facing analytics portal serving 50k+ monthly users.",
+  //     "Partnered with design to establish accessibility guidelines adopted org-wide.",
+  //   ],
+  // },
+  // {
+  //   id: "exp-3",
+  //   role: "Junior Web Developer",
+  //   company: "Studio Forge",
+  //   startDate: "2019",
+  //   endDate: "2021",
+  //   location: "Jakarta",
+  //   highlights: [
+  //     "Shipped marketing sites and landing pages for 15+ clients using React and CMS integrations.",
+  //   ],
+  // },
 ]
 
 export const INTERNSHIP: ExperienceItem = {
@@ -168,25 +184,82 @@ export const EDUCATION: EducationItem[] = [
   },
 ]
 
+export const CERTIFICATES: CertificateItem[] = [
+  {
+    id: "cert-aws-ans",
+    title: "AWS Certified Advanced Networking – Specialty (ANS-C01)",
+    issuer: "AWS Training & Certification",
+    date: "July 15, 2026",
+    description:
+      "Completed the official practice question set covering advanced AWS networking architecture, hybrid connectivity, and network security.",
+    fileUrl: awsAnsUrl,
+  },
+  {
+    id: "cert-aws-cloud-practitioner",
+    title: "AWS Cloud Practitioner Essentials",
+    issuer: "AWS Training & Certification",
+    date: "July 15, 2026",
+    description:
+      "Completed AWS's foundational course on core cloud concepts, services, security, and pricing.",
+    fileUrl: awsCloudPractitionerUrl,
+  },
+  {
+    id: "cert-ai-advantage",
+    title: "The AI Advantage: Understanding AI and Why It Matters",
+    issuer: "DOST-ASTI · ACABAI-PH",
+    date: "June 1, 2026",
+    description:
+      "Completed a module on practical AI adoption for individuals and organizations under the Advancing Computing, Analytics, Big Data and AI in the Philippines program.",
+    fileUrl: aiAdvantageUrl,
+  },
+  {
+    id: "cert-sindbad-internship",
+    title: "Certificate of Internship — Developer Intern",
+    issuer: "Sindbad.Tech",
+    date: "May 7, 2026",
+    description:
+      "Completed a 486-hour developer internship at Sindbad.Tech, a fintech company based in the Kingdom of Saudi Arabia.",
+    fileUrl: sindbadCertUrl,
+  },
+  {
+    id: "cert-world-wide-ctf",
+    title: "World Wide CTF 2025",
+    issuer: "World Wide Flags",
+    date: "July 28, 2025",
+    description:
+      "Participated in a jeopardy-style hacking competition testing security and problem-solving skills.",
+    fileUrl: worldWideCtfUrl,
+  },
+  {
+    id: "cert-aiml-webinar",
+    title: "Artificial Intelligence / Machine Learning Webinar",
+    issuer: "USAID · Asia Open RAN Academy",
+    date: "December 14, 2024",
+    description:
+      "Attended the USAID webinar on Advancing Open RAN in Asia under the Indo-Pacific Opportunity Program (IPOP).",
+    fileUrl: aiMlWebinarUrl,
+  },
+]
+
 export const SKILLS: SkillGroup[] = [
   {
     id: "skill-languages",
     category: "Languages",
-    skills: ["TypeScript", "JavaScript", "HTML", "CSS"],
+    skills: ["TypeScript", "JavaScript", "HTML", "CSS", "Java","Python"],
   },
   {
     id: "skill-frontend",
     category: "Frontend",
-    skills: ["React", "TanStack Router/Query", "Tailwind CSS", "Radix UI"],
+    skills: ["React", "TanStack Router/Query", "Tailwind CSS", "Vue","Expo"],
   },
   {
     id: "skill-tooling",
     category: "Tooling",
-    skills: ["Vite", "Vitest", "Storybook", "ESLint"],
+    skills: ["Vite", "Vitest", "ESLint"],
   },
   {
     id: "skill-practices",
     category: "Practices",
-    skills: ["Accessibility (WCAG)", "Design Systems", "Performance Profiling"],
+    skills: ["Design Systems", "LeetCode", "Data Structures"],
   },
 ]
