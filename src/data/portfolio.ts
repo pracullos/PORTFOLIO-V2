@@ -107,41 +107,41 @@ export const WORKS: WorkItem[] = [
 ]
 
 export const EXPERIENCE: ExperienceItem[] = [
-  {
-    id: "exp-1",
-    role: "Senior Frontend Engineer",
-    company: "Northwind Labs",
-    startDate: "2023",
-    endDate: "Present",
-    location: "Remote",
-    highlights: [
-      "Led migration of legacy dashboard to a component-driven architecture, reducing bundle size by 38%.",
-      "Introduced a shared design-token pipeline used across 4 product surfaces.",
-    ],
-  },
-  {
-    id: "exp-2",
-    role: "Frontend Engineer",
-    company: "Bluecrest Software",
-    startDate: "2021",
-    endDate: "2023",
-    location: "Singapore",
-    highlights: [
-      "Built and maintained a customer-facing analytics portal serving 50k+ monthly users.",
-      "Partnered with design to establish accessibility guidelines adopted org-wide.",
-    ],
-  },
-  {
-    id: "exp-3",
-    role: "Junior Web Developer",
-    company: "Studio Forge",
-    startDate: "2019",
-    endDate: "2021",
-    location: "Jakarta",
-    highlights: [
-      "Shipped marketing sites and landing pages for 15+ clients using React and CMS integrations.",
-    ],
-  },
+  // {
+  //   id: "exp-1",
+  //   role: "Senior Frontend Engineer",
+  //   company: "Northwind Labs",
+  //   startDate: "2023",
+  //   endDate: "Present",
+  //   location: "Remote",
+  //   highlights: [
+  //     "Led migration of legacy dashboard to a component-driven architecture, reducing bundle size by 38%.",
+  //     "Introduced a shared design-token pipeline used across 4 product surfaces.",
+  //   ],
+  // },
+  // {
+  //   id: "exp-2",
+  //   role: "Frontend Engineer",
+  //   company: "Bluecrest Software",
+  //   startDate: "2021",
+  //   endDate: "2023",
+  //   location: "Singapore",
+  //   highlights: [
+  //     "Built and maintained a customer-facing analytics portal serving 50k+ monthly users.",
+  //     "Partnered with design to establish accessibility guidelines adopted org-wide.",
+  //   ],
+  // },
+  // {
+  //   id: "exp-3",
+  //   role: "Junior Web Developer",
+  //   company: "Studio Forge",
+  //   startDate: "2019",
+  //   endDate: "2021",
+  //   location: "Jakarta",
+  //   highlights: [
+  //     "Shipped marketing sites and landing pages for 15+ clients using React and CMS integrations.",
+  //   ],
+  // },
 ]
 
 export const INTERNSHIP: ExperienceItem = {

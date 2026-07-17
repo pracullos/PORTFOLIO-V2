@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react"
+import { Link } from "@tanstack/react-router"
 
 import { cn } from "@/lib/utils"
 import { SectionHeading } from "@/components/sections/section-heading"
@@ -17,6 +18,7 @@ type Project = {
   status: string
   description: string
   stacks: StackGroup[]
+  isRecent: boolean
 }
 
 const PROJECTS: Project[] = [
@@ -31,6 +33,7 @@ const PROJECTS: Project[] = [
       { label: "Backend", items: ["Supabase"] },
       { label: "Middleware", items: ["Hono", "Cloudflare Pages"] },
     ],
+    isRecent: true,
   },
   {
     id: "networking-saas",
@@ -43,6 +46,7 @@ const PROJECTS: Project[] = [
       { label: "Backend", items: ["FastAPI"] },
       { label: "Infrastructure", items: ["AWS EC2", "VPC", "S3", "RDS"] },
     ],
+    isRecent: true,
   },
   {
     id: "dayong",
@@ -51,6 +55,7 @@ const PROJECTS: Project[] = [
     description:
       "A blockchain app for my community's mutual-aid death group — when a member passes, every remaining member contributes a fee and goods to the family. Blockchain keeps the member count and total contributions transparent to everyone in the group.",
     stacks: [{ label: "Concept", items: ["Blockchain", "Smart Contracts"] }],
+    isRecent: false,
   },
 ]
 
@@ -109,23 +114,44 @@ function ProjectCard({ project, reverse }: { project: Project; reverse: boolean 
   )
 }
 
-export function WorksSection() {
+type WorksSectionProps = {
+  variant?: "recent" | "all"
+}
+
+export function WorksSection({ variant = "all" }: WorksSectionProps) {
+  const projects = variant === "recent" ? PROJECTS.filter((project) => project.isRecent) : PROJECTS
+
   return (
     <section id="works" aria-labelledby="works-heading" className="mx-auto w-full max-w-5xl px-6 py-20">
       <div id="works-heading">
         <SectionHeading
-          eyebrow="Recent work"
-          title="Things I've built"
-          description="Projects I've shipped and am currently building, from rental platforms to blockchain experiments."
+          eyebrow={variant === "recent" ? "Recent work" : "Portfolio"}
+          title={variant === "recent" ? "Things I've built" : "All projects"}
+          description={
+            variant === "recent"
+              ? "A few things I've shipped and am currently building lately."
+              : "Every project I've shipped, am building, or have planned."
+          }
           align="center"
         />
       </div>
 
       <div className="mt-10 grid grid-cols-1 gap-6">
-        {PROJECTS.map((project, index) => (
+        {projects.map((project, index) => (
           <ProjectCard key={project.id} project={project} reverse={index % 2 === 1} />
         ))}
       </div>
+
+      {variant === "recent" ? (
+        <div className="mt-8 flex justify-center">
+          <Button asChild variant="outline">
+            <Link to="/projects">
+              View all projects
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </Button>
+        </div>
+      ) : null}
     </section>
   )
 }
