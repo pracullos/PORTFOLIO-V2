@@ -4,6 +4,7 @@ import { toast } from "sonner"
 
 import hireMeUrl from "@/assets/animations/hire_me.lottie?url"
 import { PROFILE } from "@/data/portfolio"
+import { useHireMeStore } from "@/stores/hireme-store"
 import { Button } from "@/components/ui/button"
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
@@ -22,7 +23,8 @@ const CONTACT_EMAIL =
   PROFILE.socials.find((social) => social.icon === "mail")?.href.replace("mailto:", "") ?? ""
 
 export function HireMe() {
-  const [open, setOpen] = useState(false)
+  const open = useHireMeStore((state) => state.open)
+  const setOpen = useHireMeStore((state) => state.setOpen)
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")

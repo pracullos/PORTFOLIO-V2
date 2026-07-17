@@ -96,7 +96,7 @@ export function Terminal() {
           src={terminalIcon}
           alt=""
           aria-hidden="true"
-          className="size-9 transition-transform duration-500 ease-out"
+          className="size-9 transition-transform duration-500 ease-out dark:invert"
           style={{ transform: `rotate(${spins * 360}deg)` }}
         />
       </button>

@@ -1,6 +1,7 @@
 import { ArrowRight, Briefcase, MapPin } from "lucide-react"
 
-import { EXPERIENCE, INTERNSHIP, PROFILE } from "@/data/portfolio"
+import { EXPERIENCE, INTERNSHIP } from "@/data/portfolio"
+import { useHireMeStore } from "@/stores/hireme-store"
 import { SectionHeading } from "@/components/sections/section-heading"
 import { Button } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -14,8 +15,6 @@ import {
   ItemMedia,
   ItemTitle,
 } from "@/components/ui/item"
-
-const HIRE_ME_HREF = PROFILE.socials.find((social) => social.icon === "mail")?.href ?? "#"
 
 function ExperienceRow({
   role,
@@ -74,6 +73,8 @@ function ExperienceRow({
 }
 
 export function ExperienceSection() {
+  const setHireMeOpen = useHireMeStore((state) => state.setOpen)
+
   return (
     <section
       id="experience"
@@ -110,8 +111,8 @@ export function ExperienceSection() {
                 ))}
               </div>
               <div className="absolute inset-0 flex items-center justify-center">
-                <Button asChild size="lg">
-                  <a href={HIRE_ME_HREF}>Please Hire Me</a>
+                <Button size="lg" onClick={() => setHireMeOpen(true)}>
+                  Please Hire Me
                 </Button>
               </div>
             </div>

@@ -60,11 +60,11 @@ export type SkillGroup = {
 }
 
 export const PROFILE: Profile = {
-  name: "Jordan Rivera",
-  role: "Frontend Engineer",
+  name: "John Paul B. Pracullos",
+  role: "Full-Stack Developer",
   tagline: "Building fast, accessible interfaces for the web.",
   summary:
-    "I design and build production-grade UI systems — from design tokens to component libraries — with a focus on performance, accessibility, and developer experience.",
+    "Software Developer with hands-on experience building backend services, microservice architectures, and AI-powered applications using Python, Java, Spring Boot, FastAPI, and PostgreSQL. Experienced in developing scalable APIs, automation workflows, and machine learning solutions through internship and project work. Passionate about building reliable software systems that solve real-world problems.",
   location: "Remote · GMT+7",
   availability: "Open to new opportunities",
   resumeUrl: "/resume.pdf",

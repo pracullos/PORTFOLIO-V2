@@ -11,11 +11,11 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
 const ROLE_STRINGS = [
-  "FullStack Developer",
-  "Cloud Engineer",
+  "Full-Stack Developer",
+  "Backend Developer",
   "Bachelor of Science in Information Technology",
   "Cum Laude",
-  "Civil Service Eligible",
+  "Civil Service Professional Eligible",
 ]
 
 
