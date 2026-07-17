@@ -28,17 +28,6 @@ export type Profile = {
   socials: SocialLink[]
 }
 
-export type WorkItem = {
-  id: string
-  title: string
-  description: string
-  imageUrl?: string
-  tags: string[]
-  href?: string
-  repoHref?: string
-  featured?: boolean
-}
-
 export type ExperienceItem = {
   id: string
   role: string
@@ -90,37 +79,6 @@ export const PROFILE: Profile = {
     { label: "Email", href: "mailto:hello@example.com", icon: "mail" },
   ],
 }
-
-export const WORKS: WorkItem[] = [
-  {
-    id: "work-1",
-    title: "Commerce Dashboard",
-    description:
-      "Real-time analytics dashboard for a multi-tenant e-commerce platform, built with virtualized tables and streaming updates.",
-    tags: ["React", "TypeScript", "TanStack Query"],
-    href: "#",
-    repoHref: "#",
-    featured: true,
-  },
-  {
-    id: "work-2",
-    title: "Design System",
-    description:
-      "Component library and token pipeline adopted across 6 product teams, cutting UI review time by half.",
-    tags: ["Tailwind CSS", "Storybook", "Radix"],
-    href: "#",
-    repoHref: "#",
-    featured: true,
-  },
-  {
-    id: "work-3",
-    title: "Booking Flow Revamp",
-    description:
-      "Rebuilt a multi-step booking flow with optimistic updates and state-machine-driven form validation.",
-    tags: ["React Router", "Zustand", "a11y"],
-    href: "#",
-  },
-]
 
 export const EXPERIENCE: ExperienceItem[] = [
   // {
@@ -175,12 +133,27 @@ export const INTERNSHIP: ExperienceItem = {
 export const EDUCATION: EducationItem[] = [
   {
     id: "edu-1",
-    degree: "B.Sc. Computer Science",
-    school: "University of Technology",
-    startDate: "2015",
-    endDate: "2019",
-    location: "Jakarta, Indonesia",
-    description: "Focused on human-computer interaction and distributed systems.",
+    degree: "Bachelor of Science in Information Technology",
+    school: "Caraga State University",
+    startDate: "2022",
+    endDate: "2026",
+    location: "Philippines",
+  },
+  {
+    id: "edu-2",
+    degree: "Senior High School (HUMSS)",
+    school: "Agusan Del Sur College",
+    startDate: "2020",
+    endDate: "2022",
+    location: "Philippines",
+  },
+  {
+    id: "edu-3",
+    degree: "Junior High School",
+    school: "Bayugan City Comprehensive High School",
+    startDate: "2016",
+    endDate: "2020",
+    location: "Philippines",
   },
 ]
 
@@ -243,23 +216,53 @@ export const CERTIFICATES: CertificateItem[] = [
 
 export const SKILLS: SkillGroup[] = [
   {
+    id: "skill-core",
+    category: "Core Competencies",
+    skills: [
+      "Backend Development",
+      "REST API Development",
+      "Microservices Architecture",
+      "Database Design",
+      "API Integration",
+      "Authentication & Authorization",
+      "AI/ML Integration",
+      "System Design",
+      "Problem Solving",
+    ],
+  },
+  {
     id: "skill-languages",
     category: "Languages",
-    skills: ["TypeScript", "JavaScript", "HTML", "CSS", "Java","Python"],
+    skills: ["Python", "Java", "JavaScript", "TypeScript", "Dart"],
+  },
+  {
+    id: "skill-backend",
+    category: "Backend",
+    skills: ["Spring Boot", "Laravel", "FastAPI"],
   },
   {
     id: "skill-frontend",
     category: "Frontend",
-    skills: ["React", "TanStack Router/Query", "Tailwind CSS", "Vue","Expo"],
+    skills: ["React", "Vue.js", "Flutter", "React Native/Expo"],
   },
   {
-    id: "skill-tooling",
-    category: "Tooling",
-    skills: ["Vite", "Vitest", "ESLint"],
+    id: "skill-database",
+    category: "Database",
+    skills: ["PostgreSQL", "MongoDB"],
   },
   {
-    id: "skill-practices",
-    category: "Practices",
-    skills: ["Design Systems", "LeetCode", "Data Structures"],
+    id: "skill-devops",
+    category: "DevOps & Tools",
+    skills: ["Docker", "Git", "Postman"],
+  },
+  {
+    id: "skill-auth",
+    category: "Authentication",
+    skills: ["JWT", "OAuth2", "Keycloak"],
+  },
+  {
+    id: "skill-aiml",
+    category: "AI/ML",
+    skills: ["TensorFlow", "OpenCV", "NumPy", "Pandas", "Matplotlib"],
   },
 ]
