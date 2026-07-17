@@ -245,21 +245,21 @@ export const SKILLS: SkillGroup[] = [
   {
     id: "skill-languages",
     category: "Languages",
-    skills: ["TypeScript", "JavaScript", "HTML", "CSS"],
+    skills: ["TypeScript", "JavaScript", "HTML", "CSS", "Java","Python"],
   },
   {
     id: "skill-frontend",
     category: "Frontend",
-    skills: ["React", "TanStack Router/Query", "Tailwind CSS", "Radix UI"],
+    skills: ["React", "TanStack Router/Query", "Tailwind CSS", "Vue","Expo"],
   },
   {
     id: "skill-tooling",
     category: "Tooling",
-    skills: ["Vite", "Vitest", "Storybook", "ESLint"],
+    skills: ["Vite", "Vitest", "ESLint"],
   },
   {
     id: "skill-practices",
     category: "Practices",
-    skills: ["Accessibility (WCAG)", "Design Systems", "Performance Profiling"],
+    skills: ["Design Systems", "LeetCode", "Data Structures"],
   },
 ]
