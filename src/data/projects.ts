@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
     ],
     isRecent: true,
     category: "mvp",
-    url: null,
+    url: "https://gorentl.netlify.app",
   },
   {
     id: "networking-saas",
