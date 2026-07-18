@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-import { WorksSection } from '@/components/sections/works-section'
+import { AllProjectsSection } from '@/components/sections/all-projects-section'
 
 export const Route = createFileRoute('/projects')({
   component: ProjectsPage,
@@ -9,7 +9,7 @@ export const Route = createFileRoute('/projects')({
 function ProjectsPage() {
   return (
     <main>
-      <WorksSection variant="all" />
+      <AllProjectsSection />
     </main>
   )
 }
