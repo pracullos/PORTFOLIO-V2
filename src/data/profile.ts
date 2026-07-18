@@ -32,7 +32,7 @@ export const PROFILE: Profile = {
   resumeUrl: "/resume.pdf",
   socials: [
     { label: "GitHub", href: "https://github.com/pracullos", icon: "github" },
-    { label: "LinkedIn", href: "www.linkedin.com/in/john-paul-pracullos", icon: "linkedin" },
-    { label: "Email", href: "pracullosjohnpaul@gmail.com", icon: "mail" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/john-paul-pracullos", icon: "linkedin" },
+    { label: "Email", href: "mailto:pracullosjohnpaul@gmail.com", icon: "mail" },
   ],
 }
