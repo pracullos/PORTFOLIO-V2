@@ -30,7 +30,7 @@ export const PROJECTS: Project[] = [
     ],
     isRecent: true,
     category: "mvp",
-    url: "https://fetch-me-up.pracullosjohnpaul.workers.dev/",
+    url: "https://fetch-me-up.netlify.app",
   },
   {
     id: "rental-platform",
