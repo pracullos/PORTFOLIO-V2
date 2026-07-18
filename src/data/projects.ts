@@ -13,13 +13,29 @@ export type Project = {
   stacks: StackGroup[]
   isRecent: boolean
   category: ProjectCategory
+  url: string | null
 }
 
 export const PROJECTS: Project[] = [
   {
+    id: "fetch-me-up",
+    title: "Fetch Me Up",
+    status: "In Progress",
+    description:
+      "An all-in-one errand app for the city — book a Ride in seconds, request Pabili to have a rider buy and bring what you need, or get same-day Parcel Pickup and delivery, all from one app.",
+    stacks: [
+      { label: "Frontend", items: ["React", "TailwindCSS", "shadcn/ui"] },
+      { label: "Backend", items: ["Supabase"] },
+      { label: "Middleware", items: ["Hono", "Cloudflare Workers"] },
+    ],
+    isRecent: true,
+    category: "mvp",
+    url: "https://fetch-me-up.pracullosjohnpaul.workers.dev/",
+  },
+  {
     id: "rental-platform",
     title: "Rental Platform",
-    status: "Web & Mobile",
+    status: "In progress",
     description:
       "A rental platform available on web and mobile, letting users list and book rentals with a Cloudflare-backed API sitting between the client and the database.",
     stacks: [
@@ -28,7 +44,8 @@ export const PROJECTS: Project[] = [
       { label: "Middleware", items: ["Hono", "Cloudflare Pages"] },
     ],
     isRecent: true,
-    category: "project",
+    category: "mvp",
+    url: null,
   },
   {
     id: "networking-saas",
@@ -41,8 +58,9 @@ export const PROJECTS: Project[] = [
       { label: "Backend", items: ["FastAPI"] },
       { label: "Infrastructure", items: ["AWS EC2", "VPC", "S3", "RDS"] },
     ],
-    isRecent: true,
-    category: "mvp",
+    isRecent: false,
+    category: "idea",
+    url: null,
   },
   {
     id: "dayong",
@@ -53,6 +71,7 @@ export const PROJECTS: Project[] = [
     stacks: [{ label: "Concept", items: ["Blockchain", "Smart Contracts"] }],
     isRecent: false,
     category: "idea",
+    url: null,
   },
   {
     id: "agri-insurance-disease-detection",
@@ -67,6 +86,7 @@ export const PROJECTS: Project[] = [
     ],
     isRecent: false,
     category: "project",
+    url: null,
   },
   {
     id: "biznest",
@@ -81,5 +101,6 @@ export const PROJECTS: Project[] = [
     ],
     isRecent: false,
     category: "project",
+    url: null,
   },
 ]

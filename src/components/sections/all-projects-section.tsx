@@ -46,9 +46,9 @@ export function AllProjectsSection() {
         onValueChange={(value) => setTab(value as TabValue)}
         className="mt-10"
       >
-        <TabsList className="mx-auto">
+        <TabsList className="mx-auto h-10 gap-1 p-1">
           {TABS.map(({ value, label }) => (
-            <TabsTrigger key={value} value={value}>
+            <TabsTrigger key={value} value={value} className="px-4 py-1.5">
               {label}
             </TabsTrigger>
           ))}

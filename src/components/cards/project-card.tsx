@@ -49,14 +49,16 @@ export function ProjectCard({ project, reverse }: { project: Project; reverse: b
                 </div>
             </div>
 
-            <div className="flex justify-end border-t border-border px-6 py-3 sm:px-8">
-                <Button asChild variant="ghost" size="sm">
-                    <a href="#">
-                        More
-                        <ArrowRight className="size-4" aria-hidden="true" />
-                    </a>
-                </Button>
-            </div>
+            {project.url ? (
+                <div className="flex justify-end border-t border-border px-6 py-3 sm:px-8">
+                    <Button asChild variant="ghost" size="sm">
+                        <a href={project.url} target="_blank" rel="noopener noreferrer">
+                            Visit site
+                            <ArrowRight className="size-4" aria-hidden="true" />
+                        </a>
+                    </Button>
+                </div>
+            ) : null}
         </Card>
     )
 }
