@@ -16,7 +16,7 @@ function HomePage() {
     <main>
       <HeroSection />
       <Separator className="mx-auto max-w-5xl" />
-      <WorksSection variant="recent" />
+      <WorksSection />
       <Separator className="mx-auto max-w-5xl" />
       <ExperienceSection />
       <Separator className="mx-auto max-w-5xl" />
