@@ -31,8 +31,8 @@ export const PROFILE: Profile = {
   availability: "Open to new opportunities",
   resumeUrl: "/resume.pdf",
   socials: [
-    { label: "GitHub", href: "https://github.com/", icon: "github" },
-    { label: "LinkedIn", href: "https://linkedin.com/", icon: "linkedin" },
-    { label: "Email", href: "mailto:hello@example.com", icon: "mail" },
+    { label: "GitHub", href: "https://github.com/pracullos", icon: "github" },
+    { label: "LinkedIn", href: "www.linkedin.com/in/john-paul-pracullos", icon: "linkedin" },
+    { label: "Email", href: "pracullosjohnpaul@gmail.com", icon: "mail" },
   ],
 }
